@@ -1,13 +1,14 @@
 'use strict';
 
   module.exports = function(grunt) {
+    var list = ['Gruntfile.js', 'hello.js', 'test/**/*.js'];
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-simple-mocha');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.initConfig({
       jshint: {
         dev: {
-          src: ['Gruntfile.js', 'hello.js', 'test/**/*.js']
+          src: list
         },
 
         options: { 
@@ -27,12 +28,12 @@
           timeout: 3000
         },
         dev: {
-          src: ['Gruntfile.js', 'hello.js', 'test/**/*.js']
+          src: list
         }
       },
       watch: {
         scripts: {
-          files: ['Gruntfile.js', 'hello.js', 'test/**/*.js'],
+          files: list,
           tasks: ['jshint'],
           options: {
             spawn: false
